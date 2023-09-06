@@ -1,0 +1,87 @@
+<div class="flex justify-center items-center h-full">
+    <div class="max-w-md w-full p-6 space-y-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold text-center">Add card</h1>
+        <form [formGroup]="cardForm" (ngSubmit)="handleSubmit()">
+            <div class="space-y-4">
+                <div>
+                    <label for="cardholderName" class="text-gray-600 block">Cardholder</label>
+                    <input type="text" name="cardholderName" formControlName="cardholderName" class="form-input border border-gray-300 rounded-md p-2 w-full">
+                    <!-- email error handling -->
+                    <div *ngIf="cardForm.get('cardholderName')?.touched" class="text-red-500">
+                        <div *ngIf="cardForm.get('cardholderName')?.errors?.['required']">
+                            Cardholder name is required!
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="cardNumber" class="text-gray-600 block">Card number</label>
+                    <input type="number" name="cardNumber" formControlName="cardNumber" class="form-input border border-gray-300 rounded-md p-2 w-full">
+                    <!-- email error handling -->
+                    <div *ngIf="cardForm.get('cardNumber')?.touched" class="text-red-500">
+                        <div *ngIf="cardForm.get('cardNumber')?.errors?.['required']">
+                            Card number is required!
+                        </div>
+                        <div *ngIf="cardForm.get('cardNumber')?.errors?.['minLength']">
+                            Card number must be 16 numbers!
+                        </div>
+                        <div *ngIf="cardForm.get('cardNumber')?.errors?.['maxLength']">
+                            Card number must be 16 numbers!
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="expirationDate" class="text-gray-600 block">Exp. date</label>
+                    <input type="date" name="expirationDate" formControlName="expirationDate" class="form-input border border-gray-300 rounded-md p-2 w-full">
+                    <!-- email error handling -->
+                    <div *ngIf="cardForm.get('expirationDate')?.touched" class="text-red-500">
+                        <div *ngIf="cardForm.get('expirationDate')?.errors?.['required']">
+                            Expiration date is required!
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="pin" class="text-gray-600 block">Pin</label>
+                    <input type="password" name="pin" formControlName="pin" class="form-input border border-gray-300 rounded-md p-2 w-full">
+                    <!-- email error handling -->
+                    <div *ngIf="cardForm.get('pin')?.touched" class="text-red-500">
+                        <div *ngIf="cardForm.get('pin')?.errors?.['required']">
+                            Pin is required!
+                        </div>
+                        <div *ngIf="cardForm.get('pin')?.errors?.['minLength']">
+                            Pin must be 4 numbers long!
+                        </div>
+                        <div *ngIf="cardForm.get('pin')?.errors?.['maxLength']">
+                            Pin must be 4 numbers long!
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="cvv" class="text-gray-600 block">Cvv</label>
+                    <input type="password" name="cvv" formControlName="cvv" class="form-input border border-gray-300 rounded-md p-2 w-full">
+                    <!-- email error handling -->
+                    <div *ngIf="cardForm.get('cvv')?.touched" class="text-red-500">
+                        <div *ngIf="cardForm.get('cvv')?.errors?.['required']">
+                            Cvv is required!
+                        </div>
+                        <div *ngIf="cardForm.get('cvv')?.errors?.['minLength']">
+                            Cvv must be 3 numbers long!
+                        </div>
+                        <div *ngIf="cardForm.get('cvv')?.errors?.['maxLength']">
+                            Cvv must be 3 numbers long!
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="cardForm.get('password')?.touched" class="text-red-500">
+                    
+                </div>
+            </div>
+
+            <button class="btn bg-gray-200 mt-6 w-full">Add</button>
+        </form>
+    </div>
+</div>

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService, private router: Router) { }
 
   registerUser(userData: any) {
     const { appUrl } = environment;
@@ -31,5 +33,11 @@ export class UserService {
     })
 
     return this.http.post<any>(`${appUrl}/account/login`, json, {headers})
+  }
+
+  logoutUser() {
+    this.auth.isLoggedIn = false;
+    localStorage.clear();
+    this.router.navigate([''])
   }
 }

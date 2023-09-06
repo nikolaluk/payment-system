@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { UsersModule } from './users/users.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CardsModule } from './cards/cards.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     FeaturesModule,
     UsersModule,
+    CardsModule,
 
     BrowserModule,
     AppRoutingModule,
