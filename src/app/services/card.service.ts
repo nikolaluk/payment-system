@@ -11,18 +11,19 @@ export class CardService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+
+
   addCard(cardData: any) {
     const { appUrl } = environment;
     const json = JSON.stringify(cardData);
     const accountId = localStorage.getItem('id');
     console.log(json);
-    
         
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       //TODO: Add X-auth header
     })
  
-    return this.http.post<any>(`${appUrl}/cards/add/${accountId}`, json, {headers})
+    return this.http.post<any>(`${appUrl}/card/add/${accountId}`, json, {headers})
   }
 }
