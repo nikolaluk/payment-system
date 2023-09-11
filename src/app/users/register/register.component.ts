@@ -55,7 +55,7 @@ export class RegisterComponent {
         (err) => {
           console.log(err);
 
-          this.errorMessage = err.error.message;
+          this.errorMessage = err.error.error;
         });
   }
 }

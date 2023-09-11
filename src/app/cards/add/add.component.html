@@ -33,7 +33,7 @@
 
                 <div>
                     <label for="expirationDate" class="text-gray-600 block">Exp. date</label>
-                    <input type="date" name="expirationDate" formControlName="expirationDate" class="form-input border border-gray-300 rounded-md p-2 w-full">
+                    <input type="text" name="expirationDate" formControlName="expirationDate" class="form-input border border-gray-300 rounded-md p-2 w-full">
                     <!-- email error handling -->
                     <div *ngIf="cardForm.get('expirationDate')?.touched" class="text-red-500">
                         <div *ngIf="cardForm.get('expirationDate')?.errors?.['required']">

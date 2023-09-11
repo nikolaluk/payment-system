@@ -37,11 +37,11 @@ export class AddComponent {
     this.cardService.addCard(cardData)
       .subscribe(
         (data) => {
-
+          this.router.navigate(['/cards'])
+          
         },
         (err) => {
           console.log(err);
-          
         });
   }
 }
